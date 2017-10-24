@@ -3,3 +3,16 @@
   height:50%;
   border-radius: 100%;
 }
+.head{
+  color:black;
+  text-align: center;
+  font-size: 60px;
+}
+img{
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+}
+h1{
+ color:blue;
+}
