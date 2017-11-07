@@ -16,14 +16,25 @@
   };
   firebase.initializeApp(config);
   
- var database = firebase.database();
- var Name = database.ref('firstName');
- Name.on('value', function(snapshot){
-  var name = snapshot.val();
-  $('.name').html(name);
- });
- var Bio = database.ref('Bio');
- Bio.on('value', function(snapshot){
-  var Bio = snapshot.val();
-  $('.Bio').html(Bio);
- });
+var database = firebase.database();
+ 
+  
+var Projects = database.ref("Projects");
+
+Projects.on('value', function(snapshot) {
+ $('.project1').empty();
+ var Projects = snapshot.val();
+console.log(Projects);
+for (var key in Projects){
+ var div = $('<div class="col-sm-4 portfolio-item">');
+ var thumbnail = $('<div class="thumbnail text-center">');
+ var name = $('<h4 class="text-center">');
+ name.text(Projects[key].name);
+ var image = $('<img src="" class="img-responsive">');
+ image.attr("src", Projects[key].image_url);
+
+ thumbnail.append(name);
+ thumbnail.append(image);
+ div.append(thumbnail);
+ $('.project1').append(div);
+}});
